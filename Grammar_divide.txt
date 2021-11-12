@@ -1,0 +1,60 @@
+S' -> P
+P -> D P
+P -> S P 
+P -> ¦Å
+D -> proc X id DM ( M ) { P }
+D -> proc X id DM ( ) { P }
+D -> record id { P }
+D -> T id A ;
+DM -> ¦Å
+A -> = F A
+A -> , id A
+A -> ¦Å
+M -> M , X id
+M -> X id
+T -> X C
+X -> basic
+C -> [ dec ] C
+C -> ¦Å
+S -> id = E ;
+S -> if ( B ) BM S N else BM S
+S -> while BM ( B ) BM S
+S -> call id ( Elist ) ;
+S -> call id ( ) ;
+S -> return E ;
+S -> if ( B ) BM S
+S -> L = E ;
+L -> L [ E ]
+L -> id [ E ]
+E -> E + G
+E -> G
+G -> G * F
+G -> F
+F -> ( E )
+F -> dec
+F -> hex
+F -> oct
+F -> id
+F -> real
+F -> char
+F -> string
+F -> L
+B -> B || BM H
+B -> H
+H -> H && BM I
+H -> I
+I -> ! I
+I -> ( B )
+I -> E Relop E
+I -> true
+I -> false
+BM -> ¦Å
+N -> ¦Å
+Relop -> <
+Relop -> <=
+Relop -> >
+Relop -> >=
+Relop -> ==
+Relop -> !=
+Elist -> Elist , E
+Elist -> E 

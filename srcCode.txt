@@ -1,0 +1,24 @@
+int[10] arr;
+int res;
+double d;
+double d1;
+double d2;
+int[2][3] arr1;
+int[3][4] arr2;
+char ch;
+proc int func(int x) {
+	int y = 3;
+	int z = 6;
+	x = x + 1;
+	if (x > 0)
+		return x + y + z;
+	else 
+		return x * y * z;
+}
+
+
+while (ch >= '0') 
+	if (arr[1 * 3 + 1] >= 1 && arr2[0][1] == 4)
+		arr1[1][2] = 3;
+d = d + 1;
+res = call func(arr[3]);

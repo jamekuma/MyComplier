@@ -1,0 +1,60 @@
+S' -> P
+P -> D P  $声明语句$
+P -> S P 
+P -> ε
+D -> proc X id DM ( M ) { P }   $声明语句$
+D -> proc X id DM ( ) { P }
+D -> record id { P }
+D -> T id A ;
+DM -> ε
+A -> = E A       $声明序列$
+A -> , id A
+A -> ε
+M -> M , X id    $过程声明语句的形参列表$
+M -> X id
+T -> X C         $变量类型$
+X -> basic       $基本类型$
+C -> [ dec ] C   $数组维度信息$
+C -> ε           
+S -> id = E ;    $可执行语句$
+S -> if ( B ) BM S N else BM S
+S -> while BM ( B ) BM S
+S -> call id ( Elist ) ;
+S -> call id ( ) ;
+S -> return E ;
+S -> if ( B ) BM S
+S -> L = E ;
+L -> L [ E ]     $被赋值的数组下标$
+L -> id [ E ]
+E -> E + G    $算数表达式$ 
+E -> G
+G -> G * F    $算数表达式$
+G -> F
+F -> ( E )    $算数表达式$
+F -> dec      
+F -> hex
+F -> oct
+F -> id
+F -> real
+F -> char
+F -> string
+F -> L
+B -> B || BM H   $布尔表达式的'或'序列$
+B -> H            
+H -> H && BM I   $布尔表达式的'与'序列$
+H -> I 
+I -> ! I    $布尔表达式的单独项$
+I -> ( B )  
+I -> E Relop E
+I -> true
+I -> false
+BM -> ε     $布尔表达式/while语句/if-else语句$
+N -> ε      $if-else语句$
+Relop -> <    $关系运算符$
+Relop -> <=
+Relop -> >
+Relop -> >=
+Relop -> ==
+Relop -> !=
+Elist -> Elist , E  $过程调用语句的实参列表$
+Elist -> E 

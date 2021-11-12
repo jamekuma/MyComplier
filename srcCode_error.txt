@@ -1,0 +1,28 @@
+int[10] arr;
+int arr;  /*重复声明*/
+x = y + 1;  /*变量未声明即使用*/
+
+int[2][3] arr2;
+int z;  
+int u;
+u = z + arr;   /*运算类型不匹配*/
+
+u = call print("fff");  /*过程未声明即使用*/
+
+u = call z(arr);  /*调用非过程变量*/
+
+u = z[2];  /*在非数组变量上使用数组访问操作符*/
+
+z = u * arr2;  /*运算类型不匹配*/
+ 
+proc int func(int x) {
+	int y = 3;
+	int z = 6;
+	if (x > 0)
+		return x + y + z;
+	else 
+		return x * y * z;
+}
+proc int func(int x) {  /*过程重复声明*/ 
+	
+}

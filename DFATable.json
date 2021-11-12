@@ -1,0 +1,338 @@
+{
+    "stat 0#": {
+        "accType": "",
+        "next": {
+            "1-9": "stat 1",
+            "0": "stat 7", 
+            "\"": "stat 11", 
+            "/": "stat 15", 
+            "*": "stat 19",
+            "-": "stat 20", 
+            "+": "stat 21", 
+            "%": "stat 22",
+            "a-z": "stat 23", 
+            "A-Z": "stat 23",
+            "_": "stat 23", 
+            "=": "stat 24", 
+            "<": "stat 26",
+            ">": "stat 28",
+            "!": "stat 30", 
+            "|": "stat 31", 
+            "&": "stat 33", 
+            "'": "stat 35",
+            "{": "stat 40",
+            "}": "stat 41", 
+            ",": "stat 42",
+            "[": "stat 43",
+            "]": "stat 44", 
+            ";": "stat 45",
+            "(": "stat 46",
+            ")": "stat 47",
+            ".": "stat 48"
+        }
+    }, 
+    "stat 1*": {
+        "accType": "DEC",
+        "next": {
+            ".": "stat 2", 
+            "E": "stat 4", 
+            "e": "stat 4",
+            "0-9": "stat 1"
+        }
+    }, 
+    "stat 2": {
+        "accType": "",
+        "next": {
+            "0-9": "stat 3"
+        }
+    },
+    "stat 3*": {
+        "accType": "REAL",
+        "next": {
+            "0-9": "stat 3", 
+            "E": "stat 4", 
+            "e": "stat 4"
+        }
+    },
+    "stat 4": {
+        "accType": "",
+        "next": {
+            "0-9": "stat 6", 
+            "+": "stat 5", 
+            "-": "stat 5"
+        }
+    },
+    "stat 5": {
+        "accType": "",
+        "next": {
+            "0-9": "stat 6"
+        }
+    },
+    "stat 6*": {
+        "accType": "REAL",
+        "next": {
+            "0-9": "stat 6"
+        }
+    },
+    "stat 7*": {
+        "accType": "DEC",
+        "next": {
+            ".": "stat 2",
+            "E": "stat 4",
+            "e": "stat 4", 
+            "0-7": "stat 8",
+            "x": "stat 9"
+        }
+    },
+    "stat 8*": {
+        "accType": "OCT", 
+        "next": {
+            "0-7": "stat 8"
+        }
+    },
+    "stat 9": {
+        "accType": "", 
+        "next": {
+            "0-9": "stat 10",
+            "a-f": "stat 10",
+            "A-F": "stat 10"
+        }
+    }, 
+    "stat 10*": {
+        "accType": "HEX", 
+        "next": {
+            "0-9": "stat 10",
+            "a-f": "stat 10",
+            "A-F": "stat 10"
+        }
+    }, 
+    "stat 11": {
+        "accType": "",
+        "next": {
+            "\\": "stat 12", 
+            "\"": "stat 14",
+            "default": "stat 13"
+        } 
+    }, 
+    "stat 12": {
+        "accType": "", 
+        "next": {
+            "\"": "stat 13"
+        }
+    }, 
+    "stat 13": {
+        "accType": "", 
+        "next": {
+            "\\":"stat 12", 
+            "\"":"stat 14", 
+            "default":"stat 13"
+        }
+    }, 
+    "stat 14*": {
+        "accType": "STRING", 
+        "next": {
+        }
+    }, 
+    "stat 15*": {
+        "accType": "DIV", 
+        "next": {
+            "*": "stat 16"
+        }
+    }, 
+    "stat 16": {
+        "accType": "", 
+        "next": {
+            "*": "stat 17", 
+            "default": "stat 16"
+        }
+    }, 
+    "stat 17": {
+        "accType": "", 
+        "next": {
+            "*": "stat 17", 
+            "/": "stat 18",
+            "default": "stat 16"
+        }
+    }, 
+    "stat 18*": {
+        "accType": "COMMENT", 
+        "next": {
+        }
+    }, 
+    "stat 19*": {
+        "accType": "MULT", 
+        "next": {
+        }
+    }, 
+    "stat 20*": {
+        "accType": "SUB", 
+        "next": {
+        }
+    }, 
+    "stat 21*": {
+        "accType": "ADD", 
+        "next": {
+        }
+    }, 
+    "stat 22*": {
+        "accType": "MOD", 
+        "next": {
+        }
+    }, 
+    "stat 23*": {
+        "accType": "ID", 
+        "next": {
+            "A-Z": "stat 23",
+            "a-z": "stat 23", 
+            "0-9": "stat 23", 
+            "_": "stat 23"
+        }
+    }, 
+    "stat 24*": {
+        "accType": "ASSIGN", 
+        "next": {
+            "=": "stat 25"
+        }
+    }, 
+    "stat 25*": {
+        "accType": "E", 
+        "next": {
+        }
+    }, 
+    "stat 26*": {
+        "accType": "L", 
+        "next": {
+            "=": "stat 27"
+        }
+    }, 
+    "stat 27*": {
+        "accType": "LE", 
+        "next": {
+        }
+    }, 
+    "stat 28*": {
+        "accType": "G", 
+        "next": {
+            "=": "stat 29"
+        }
+    }, 
+    "stat 29*": {
+        "accType": "GE", 
+        "next": {
+        }
+    }, 
+    "stat 30*": {
+        "accType": "NOT", 
+        "next": {
+            "=":"stat 49"
+        }
+    }, 
+    "stat 31": {
+        "accType": "", 
+        "next": {
+            "|": "stat 32"
+        }
+    }, 
+    "stat 32*": {
+        "accType": "OR", 
+        "next": {
+        }
+    }, 
+    "stat 33": {
+        "accType": "", 
+        "next": {
+            "&":"stat 34"
+        }
+    }, 
+    "stat 34*": {
+        "accType": "AND", 
+        "next": {
+        }
+    }, 
+    "stat 35": {
+        "accType": "", 
+        "next": {
+            "\\":"stat 37", 
+            "'": "stat 36",
+            "default": "stat 38"
+        }
+    }, 
+    "stat 36": {
+        "accType": "", 
+        "next": {
+        }
+    }, 
+    "stat 37": {
+        "accType": "", 
+        "next": {
+            "'": "stat 38", 
+            "t": "stat 38", 
+            "n": "stat 38", 
+            "r": "stat 38", 
+            "\\": "stat 38"
+        }
+    }, 
+    "stat 38": {
+        "accType": "", 
+        "next": {
+            "'": "stat 39"
+        }
+    }, 
+    "stat 39*": {
+        "accType": "CHAR", 
+        "next": {
+        }
+    }, 
+    "stat 40*": {
+        "accType": "LP", 
+        "next": {
+        }
+    }, 
+    "stat 41*": {
+        "accType": "RP", 
+        "next": {
+        }
+    }, 
+    "stat 42*": {
+        "accType": "COMMA", 
+        "next": {
+            
+        }
+    }, 
+    "stat 43*": {
+        "accType": "LM", 
+        "next": {
+            
+        }
+    }, 
+    "stat 44*": {
+        "accType": "RM", 
+        "next": {
+        }
+    }, 
+    "stat 45*": {
+        "accType": "SEMI", 
+        "next": {
+        }
+    }, 
+    "stat 46*": {
+        "accType": "SLP", 
+        "next": {
+        }
+    }, 
+    "stat 47*": {
+        "accType": "SRP", 
+        "next": {
+        }
+    }, 
+    "stat 48*": {
+        "accType": "DOT", 
+        "next": {
+        }
+    },
+    "stat 49*": {
+        "accType": "NE", 
+        "next": {
+        }
+    }
+}
